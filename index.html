@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul style="list-style-type:none" id="users">
+
+    </ul>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.js"></script>
+
+    <script>
+        axios.get('https://jsonplaceholder.typicode.com/users')
+        .then((res)=>{
+            res.data.forEach(element => {
+                document.getElementById('users').innerHTML+= '<li>' +'ID: '+ element.id +'<br>' +'NAME: '+ element.name + '</li>'
+            });
+            
+        }).catch((error)=>{
+            console.log(error); 
+        })
+    </script>
+</body>
+</html>
